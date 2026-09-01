@@ -1,0 +1,2429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="CampusSOS AI - Intelligent campus emergency and student safety platform."
+  />
+
+  <title>CampusSOS AI — Campus Safety Intelligence</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<!-- =========================================================
+     APP
+========================================================= -->
+
+<div class="app">
+
+  <!-- =======================================================
+       NAVBAR
+  ======================================================== -->
+
+  <header class="navbar">
+
+    <div class="nav-inner">
+
+      <button class="brand" onclick="showPage('home')">
+        <div class="brand-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <div class="brand-text">
+          <strong>CampusSOS <span>AI</span></strong>
+          <small>Campus Safety Intelligence</small>
+        </div>
+      </button>
+
+      <nav class="desktop-nav">
+
+        <button class="nav-link active" data-page="home">
+          Home
+        </button>
+
+        <button class="nav-link" data-page="map">
+          Safety Map
+        </button>
+
+        <button class="nav-link" data-page="assistant">
+          AI Assistant
+        </button>
+        
+
+        <button class="nav-link" data-page="report">
+          Report Incident
+        </button>
+         <button class="nav-link" data-page="incidentHistory">
+          Incident History
+         </button>
+
+<button class="nav-link" data-page="sosHistory">
+  SOS History
+</button> 
+        <button class="nav-link" data-page="alerts">
+          Alerts
+          <span class="notification-dot"></span>
+        </button>
+
+        <button class="nav-link" data-page="resources">
+          Resources
+        </button>
+      </nav>
+
+      <div class="nav-actions">
+
+        <button
+          class="icon-button notification-button"
+          onclick="showPage('alerts')"
+          aria-label="Notifications"
+        >
+          <i class="fa-regular fa-bell"></i>
+          <span></span>
+        </button>
+
+        <button
+          class="profile-button"
+          onclick="showPage('profile')"
+        >
+          <div class="avatar">AR</div>
+          <span>Alex</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+
+        <button
+          class="mobile-menu-button"
+          onclick="toggleMobileMenu()"
+          aria-label="Open navigation"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       MOBILE MENU
+  ======================================================== -->
+
+  <div class="mobile-menu" id="mobileMenu">
+
+    <div class="mobile-menu-header">
+      <strong>Navigation</strong>
+
+      <button onclick="toggleMobileMenu()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <button onclick="mobileNavigate('home')">
+      <i class="fa-solid fa-house"></i>
+      Home
+    </button>
+
+    <button onclick="mobileNavigate('map')">
+      <i class="fa-solid fa-location-dot"></i>
+      Safety Map
+    </button>
+
+    <button onclick="mobileNavigate('assistant')">
+      <i class="fa-solid fa-robot"></i>
+      AI Assistant
+    </button>
+
+    <button onclick="mobileNavigate('report')">
+      <i class="fa-solid fa-file-circle-exclamation"></i>
+      Report Incident
+    </button>
+    <button onclick="mobileNavigate('incidentHistory')">
+  <i class="fa-solid fa-clock-rotate-left"></i>
+  Incident History
+</button>
+           <button onclick="mobileNavigate('sosHistory')">
+       <i class="fa-solid fa-tower-broadcast"></i>
+       SOS History
+       </button>
+
+    <button onclick="mobileNavigate('alerts')">
+      <i class="fa-solid fa-bell"></i>
+      Alerts
+    </button>
+
+    <button onclick="mobileNavigate('resources')">
+      <i class="fa-solid fa-life-ring"></i>
+      Resources
+    </button>
+
+
+
+    <button onclick="mobileNavigate('profile')">
+      <i class="fa-solid fa-user"></i>
+      Profile
+    </button>
+
+  </div>
+
+
+  <!-- =======================================================
+       MAIN CONTENT
+  ======================================================== -->
+
+  <main id="mainContent">
+
+
+    <!-- =====================================================
+         HOME PAGE
+    ====================================================== -->
+
+    <section class="page active" id="home">
+
+      <!-- HERO -->
+
+      <section class="hero">
+
+        <div class="hero-glow glow-one"></div>
+        <div class="hero-glow glow-two"></div>
+
+        <div class="hero-inner">
+
+          <div class="hero-content">
+
+            <div class="eyebrow dark">
+              <span class="pulse"></span>
+              AI-POWERED CAMPUS SAFETY
+            </div>
+
+            <h1>
+              Your Campus.
+              <br>
+              Your Safety.
+              <br>
+              <span>Powered by AI.</span>
+            </h1>
+
+            <p>
+              One intelligent platform for emergency assistance,
+              incident reporting, safer routes, campus alerts,
+              and instant access to trusted support.
+            </p>
+
+            <div class="hero-buttons">
+
+              <button
+                class="button button-danger large"
+                onclick="openSOS()"
+              >
+                <i class="fa-solid fa-tower-broadcast"></i>
+                Get Help Now
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <button
+                class="button button-glass large"
+                onclick="showPage('assistant')"
+              >
+                Explore Safety Features
+              </button>
+
+            </div>
+
+            <div class="trust-row">
+
+              <span>
+                <i class="fa-solid fa-shield-halved"></i>
+                Privacy-first
+              </span>
+
+              <span>
+                <i class="fa-solid fa-bolt"></i>
+                Fast response
+              </span>
+
+              <span>
+                <i class="fa-solid fa-lock"></i>
+                Secure by design
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- HERO PRODUCT MOCKUP -->
+
+          <div class="hero-product">
+
+            <div class="product-window">
+
+              <div class="product-top">
+
+                <div>
+                  <small>CAMPUSSOS</small>
+                  <strong>Safety Center</strong>
+                </div>
+
+                <div class="status-badge">
+                  <span></span>
+                  Protected
+                </div>
+
+              </div>
+
+              <div class="mini-map">
+
+                <div class="map-grid"></div>
+
+                <div class="building building-a"></div>
+                <div class="building building-b"></div>
+                <div class="building building-c"></div>
+
+                <div class="map-label label-a">
+                  Student Hub
+                </div>
+
+                <div class="map-label label-b">
+                  Medical Center
+                </div>
+
+                <div class="user-location">
+                  <div>
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                  </div>
+                </div>
+
+                <div class="map-point point-security"></div>
+                <div class="map-point point-medical"></div>
+
+              </div>
+
+
+              <div class="ai-mini-card">
+
+                <div class="ai-icon">
+                  <i class="fa-solid fa-robot"></i>
+                </div>
+
+                <div>
+                  <small>AI ASSISTANT</small>
+                  <strong>How can I keep you safe?</strong>
+                </div>
+
+              </div>
+
+              <button
+                class="hero-sos"
+                onclick="openSOS()"
+              >
+                <i class="fa-solid fa-tower-broadcast"></i>
+                EMERGENCY SOS
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- QUICK ACTIONS -->
+
+      <section class="section container">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-label">
+              QUICK RESPONSE
+            </span>
+
+            <h2>Help is one tap away</h2>
+
+            <p>
+              Designed for moments when every second matters.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+          <button
+            class="quick-card danger"
+            onclick="openSOS()"
+          >
+            <div class="quick-icon">
+              <i class="fa-solid fa-tower-broadcast"></i>
+            </div>
+
+            <strong>Emergency SOS</strong>
+
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+
+          <button
+            class="quick-card"
+            onclick="shareLocation()"
+          >
+            <div class="quick-icon blue">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <strong id="locationAction">
+              Share My Location
+            </strong>
+
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+
+          <button
+            class="quick-card"
+            onclick="showToast('Medical assistance request opened')"
+          >
+            <div class="quick-icon purple">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <strong>Medical Help</strong>
+
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+
+          <button
+            class="quick-card"
+            onclick="openSOS()"
+          >
+            <div class="quick-icon orange">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+
+            <strong>Fire Emergency</strong>
+
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+
+          <button
+            class="quick-card"
+            onclick="showToast('Connecting to campus security...')"
+          >
+            <div class="quick-icon green">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <strong>Campus Security</strong>
+
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+
+          <button
+            class="quick-card"
+            onclick="showPage('report')"
+          >
+            <div class="quick-icon yellow">
+              <i class="fa-solid fa-file-circle-exclamation"></i>
+            </div>
+
+            <strong>Report Incident</strong>
+
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- MAP + SAFETY SCORE -->
+
+      <section class="section container two-column">
+
+        <button
+          class="large-map-card"
+          onclick="showPage('map')"
+        >
+
+          <div class="map-card-header">
+
+            <div>
+              <span class="section-label">
+                LIVE CAMPUS
+              </span>
+
+              <h3>Safety Map</h3>
+
+              <p>
+                5 nearby safety resources
+              </p>
+            </div>
+
+            <div class="map-arrow">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+          </div>
+
+          <div class="large-map">
+
+            <div class="map-road road-1"></div>
+            <div class="map-road road-2"></div>
+            <div class="map-road road-3"></div>
+
+            <div class="map-building map-building-1"></div>
+            <div class="map-building map-building-2"></div>
+            <div class="map-building map-building-3"></div>
+
+            <div class="map-pin safe">
+              <i class="fa-solid fa-shield"></i>
+            </div>
+
+            <div class="map-pin security">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div class="map-pin medical">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <div class="map-pin incident">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+
+            <div class="map-user">
+              <span></span>
+            </div>
+
+            <div class="map-floating-label">
+              <strong>Your location</strong>
+              <small>Central Student Hub</small>
+            </div>
+
+          </div>
+
+        </button>
+
+
+        <div class="safety-card">
+
+          <div class="card-header">
+
+            <div>
+              <span class="section-label">
+                CAMPUS PULSE
+              </span>
+
+              <h3>Safety intelligence</h3>
+            </div>
+
+            <span class="live-badge">
+              Live
+            </span>
+
+          </div>
+
+          <div class="campus-status-badge" aria-label="Campus status secure">
+            <span class="status-dot"></span>
+            Campus Status: Secure
+          </div>
+
+
+          <div class="safety-score-box">
+
+            <div class="score-header">
+
+              <span>
+                Contextual safety indicator
+              </span>
+
+              <strong>84</strong>
+
+            </div>
+
+            <div class="score-bar">
+              <span></span>
+            </div>
+
+            <p>
+              Based on current campus alerts, reported incidents,
+              and available safety resources.
+            </p>
+
+            <small>
+              This indicator is informational and does not guarantee
+              personal safety.
+            </small>
+
+          </div>
+
+
+          <div class="metrics">
+
+            <div>
+              <strong>12</strong>
+              <span>Safe zones</span>
+            </div>
+
+            <div>
+              <strong>08</strong>
+              <span>Security posts</span>
+            </div>
+
+            <div>
+              <strong>24/7</strong>
+              <span>Response</span>
+            </div>
+
+            <div>
+              <strong>&lt;3m</strong>
+              <span>AI guidance</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- AI SECTION -->
+
+      <section class="ai-section">
+
+        <div class="container ai-grid">
+
+          <div class="ai-intro">
+
+            <div class="ai-big-icon">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <span class="section-label">
+              CAMPUSSOS INTELLIGENCE
+            </span>
+
+            <h2>
+              Meet your AI safety assistant.
+            </h2>
+
+            <p>
+              Get calm, actionable guidance based on your
+              situation and campus context.
+            </p>
+
+            <button
+              class="text-button"
+              onclick="showPage('assistant')"
+            >
+              Open AI Assistant
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+          </div>
+
+
+          <div class="conversation-preview">
+
+            <div class="chat-message ai-message">
+
+              <div class="chat-avatar">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+
+              <div>
+                How can I help you stay safe today?
+              </div>
+
+            </div>
+
+
+            <div class="chat-message user-message">
+              I feel unsafe walking back to my dorm.
+            </div>
+
+
+            <div class="chat-message ai-message">
+
+              <div class="chat-avatar">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+
+              <div>
+                <strong>AI SAFETY GUIDANCE</strong>
+
+                <p>
+                  I recommend taking the well-lit route through
+                  the Student Hub. I can also share your location
+                  with campus security.
+                </p>
+              </div>
+
+            </div>
+
+
+            <button
+              class="button dark full"
+              onclick="showPage('assistant')"
+            >
+              Open AI Assistant
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- FEATURES -->
+
+      <section class="section container">
+
+        <div class="section-heading">
+
+          <span class="section-label">
+            SMART RESPONSE
+          </span>
+
+          <h2>
+            Built around real emergency decisions.
+          </h2>
+
+          <p>
+            Every screen is designed to reduce friction and make
+            the next action obvious.
+          </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+          <div class="feature-card">
+
+            <div class="feature-icon blue">
+              <i class="fa-solid fa-route"></i>
+            </div>
+
+            <h3>Smart Safety Route</h3>
+
+            <p>
+              Find routes that consider current safety alerts
+              and reported incidents.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon red">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <h3>AI Risk Detection</h3>
+
+            <p>
+              Prioritize incident reports based on urgency
+              and contextual signals.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon purple">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+
+            <h3>Emergency Guidance</h3>
+
+            <p>
+              Get step-by-step guidance when you're stressed
+              or unsure what to do.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ALERT STRIP -->
+
+      <section class="dark-section">
+
+        <div class="container alert-strip">
+
+          <div>
+            <span class="section-label">
+              CAMPUS ALERTS
+            </span>
+
+            <h2>
+              Know what's happening around you.
+            </h2>
+          </div>
+
+          <div class="alert-list">
+
+            <div class="dark-alert">
+              <div class="alert-icon red">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+              </div>
+
+              <div>
+                <span>SECURITY</span>
+                <strong>Security alert near North Gate</strong>
+                <small>8 min ago</small>
+              </div>
+            </div>
+
+
+            <div class="dark-alert">
+              <div class="alert-icon orange">
+                <i class="fa-solid fa-cloud-rain"></i>
+              </div>
+
+              <div>
+                <span>WEATHER</span>
+                <strong>Heavy rain expected</strong>
+                <small>24 min ago</small>
+              </div>
+            </div>
+
+
+            <div class="dark-alert">
+              <div class="alert-icon blue">
+                <i class="fa-solid fa-building"></i>
+              </div>
+
+              <div>
+                <span>CAMPUS</span>
+                <strong>Library entrance temporarily closed</strong>
+                <small>1 hour ago</small>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </section>
+
+
+    <!-- =====================================================
+         MAP PAGE
+    ====================================================== -->
+
+    <section class="page" id="map">
+
+      <div class="container page-container">
+
+        <div class="page-heading">
+
+          <span class="section-label">
+            SAFETY MAP
+          </span>
+
+          <h1>
+            Campus safety, in context.
+          </h1>
+
+          <p>
+            See nearby resources, reported incidents,
+            and recommended safer routes.
+          </p>
+
+        </div>
+
+
+        <div class="map-page-grid">
+
+          <div class="full-map">
+
+            <div class="map-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                id="mapSearchInput"
+                type="text"
+                placeholder="Search a building or safety resource..."
+                onkeydown="handleMapSearchKey(event)"
+              />
+
+              <button id="safeRouteBtn" onclick="calculateSafeRoute()">
+                <i class="fa-solid fa-route"></i>
+                Safe Route
+              </button>
+            </div>
+
+
+            <div class="map-large-background">
+
+              <div class="map-road map-page-road-1"></div>
+              <div class="map-road map-page-road-2"></div>
+              <div class="map-road map-page-road-3"></div>
+
+              <div class="map-building building-one"></div>
+              <div class="map-building building-two"></div>
+              <div class="map-building building-three"></div>
+              <div class="map-building building-four"></div>
+
+              <div class="map-page-pin p1">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+
+              <div class="map-page-pin p2">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+
+              <div class="map-page-pin p3 danger-pin">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+              </div>
+
+              <div class="map-page-pin p4">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+
+              <div class="current-position">
+                <div></div>
+              </div>
+
+            </div>
+
+
+            <div class="map-legend">
+
+              <span>
+                <i class="dot blue"></i>
+                Security
+              </span>
+
+              <span>
+                <i class="dot purple"></i>
+                Medical
+              </span>
+
+              <span>
+                <i class="dot green"></i>
+                Safe Zone
+              </span>
+
+              <span>
+                <i class="dot red"></i>
+                Incident
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <aside class="map-sidebar">
+
+            <div class="sidebar-card" id="mapSidebarCard">
+
+              <span class="section-label">
+                NEAREST
+              </span>
+
+              <h3 id="sidebarTitle">
+                Campus Security
+              </h3>
+
+              <p id="sidebarLocation">
+                North Administration
+              </p>
+
+              <div class="nearest-info">
+
+                <div class="round-icon blue" id="sidebarIcon">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div>
+                  <strong id="sidebarDistance">2 min away</strong>
+                  <small id="sidebarStatus">Open 24/7</small>
+                </div>
+
+              </div>
+
+              <button
+                id="getDirectionsBtn"
+                class="button dark full"
+                onclick="getMapDirections()"
+              >
+                Get Directions
+              </button>
+
+            </div>
+
+
+            <div class="sidebar-card">
+
+              <span class="section-label">
+                SMART ROUTE
+              </span>
+
+              <div class="route">
+
+                <div class="route-line">
+
+                  <span class="route-start"></span>
+                  <span></span>
+                  <span></span>
+                  <span class="route-end"></span>
+
+                </div>
+
+                <div class="route-text">
+
+                  <div>
+                    <strong>Current location</strong>
+                    <small id="routeStart">Central Student Hub</small>
+                  </div>
+
+                  <div>
+                    <strong>Safe destination</strong>
+                    <small id="routeEnd">North Administration</small>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="route-note">
+                <i class="fa-solid fa-sparkles"></i>
+
+                <span id="routeNoteText">AI recommends this route because it avoids
+                a recently reported incident.</span>
+              </div>
+
+            </div>
+
+
+            <button
+              class="button button-danger full"
+              onclick="openSOS()"
+            >
+              <i class="fa-solid fa-tower-broadcast"></i>
+              Emergency SOS
+            </button>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+
+
+    
+
+    <!-- =====================================================
+         AI ASSISTANT PAGE
+    ====================================================== -->
+
+    <section class="page" id="assistant">
+
+      <div class="container page-container">
+
+        <div class="page-heading">
+
+          <span class="section-label">
+            AI ASSISTANT
+          </span>
+
+          <h1>
+            Talk to CampusSOS AI.
+          </h1>
+
+          <p>
+            Describe what is happening and get clear,
+            context-aware next steps.
+          </p>
+
+        </div>
+
+
+        <div class="chat-container">
+
+          <div class="chat-header">
+
+            <div class="assistant-profile">
+
+              <div class="assistant-avatar">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+
+              <div>
+                <strong>CampusSOS Assistant</strong>
+
+                <small>
+                  <span></span>
+                  Ready to help
+                </small>
+              </div>
+
+            </div>
+
+            <button
+              class="mini-danger"
+              onclick="openSOS()"
+            >
+              Emergency SOS
+            </button>
+
+          </div>
+
+
+          <div class="chat-body" id="chatBody">
+
+            <div class="chat-row ai">
+
+              <div class="chat-avatar">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+
+              <div class="chat-bubble">
+                Hi Alex. I'm here to help you stay safe.
+                What's happening?
+              </div>
+
+            </div>
+
+
+            <div class="suggestion-grid">
+
+              <button onclick="askAI('I feel unsafe walking back to my dorm.')">
+                I feel unsafe walking back to my dorm.
+              </button>
+
+              <button onclick="askAI('Someone is injured near the library.')">
+                Someone is injured near the library.
+              </button>
+
+              <button onclick="askAI('Where is the nearest emergency exit?')">
+                Where is the nearest emergency exit?
+              </button>
+
+              <button onclick="askAI('I lost my student ID.')">
+                I lost my student ID.
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="chat-input-area">
+
+            <div class="chat-input">
+
+              <button
+                class="voice-button"
+                onclick="voiceSOS()"
+                title="Voice SOS"
+              >
+                <i class="fa-solid fa-microphone"></i>
+              </button>
+
+              <input
+                id="aiInput"
+                type="text"
+                placeholder="Describe what's happening..."
+                onkeydown="handleAIKey(event)"
+              />
+
+              <button
+                class="send-button"
+                onclick="sendAI()"
+              >
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+
+            </div>
+
+            <small>
+              AI guidance is informational. For immediate
+              life-threatening emergencies, use the appropriate
+              emergency service.
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         REPORT PAGE
+    ====================================================== -->
+
+    <section class="page" id="report">
+
+      <div class="container page-container">
+
+        <div class="page-heading">
+
+          <span class="section-label">
+            REPORT INCIDENT
+          </span>
+
+          <h1>
+            Help make campus safer.
+          </h1>
+
+          <p>
+            Submit a report securely. AI can help identify urgency
+            and summarize the information.
+          </p>
+
+        </div>
+
+
+        <div class="report-grid">
+
+          <div class="report-form-card">
+
+            <form id="incidentForm">
+
+              <div class="form-grid">
+
+                <div class="form-group">
+
+                  <label>
+                    Incident category
+                  </label>
+
+                  <select id="incidentCategory">
+                    <option>Security</option>
+                    <option>Medical</option>
+                    <option>Fire</option>
+                    <option>Harassment</option>
+                    <option>Infrastructure</option>
+                    <option>Other</option>
+                  </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                  <label>
+                    Location
+                  </label>
+
+                  <div class="input-icon">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <input
+                      type="text"
+                      placeholder="e.g. North Gate"
+                    />
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label>
+                  What happened?
+                </label>
+
+                <textarea
+                  id="incidentDescription"
+                  rows="7"
+                  placeholder="Describe the incident clearly..."
+                  required
+                ></textarea>
+
+              </div>
+
+
+              <div class="form-grid">
+
+                <div class="priority-box">
+
+                  <label>Priority</label>
+
+                  <div class="priority-buttons">
+
+                    <button
+                      type="button"
+                      onclick="setPriority(this, 'normal')"
+                      class="priority active"
+                    >
+                      Normal
+                    </button>
+
+                    <button
+                      type="button"
+                      onclick="setPriority(this, 'urgent')"
+                      class="priority"
+                    >
+                      Urgent
+                    </button>
+
+                    <button
+                      type="button"
+                      onclick="setPriority(this, 'critical')"
+                      class="priority"
+                    >
+                      Critical
+                    </button>
+
+                  </div>
+
+                </div>
+
+
+                <div class="privacy-box">
+
+                  <label>
+                    Privacy
+                  </label>
+
+                  <label class="checkbox-label">
+
+                    <input
+                      type="checkbox"
+                      id="anonymousReport"
+                    />
+
+                    Submit anonymously
+
+                  </label>
+
+                </div>
+
+              </div>
+
+
+              <div class="upload-box">
+
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                <div>
+                  <strong>Add optional photo</strong>
+                  <small>PNG, JPG up to 10MB</small>
+                </div>
+
+                <input type="file" />
+
+              </div>
+
+
+              <button
+                class="button dark full submit-report"
+                type="submit"
+              >
+                <i class="fa-solid fa-paper-plane"></i>
+                Submit Secure Report
+              </button>
+
+            </form>
+
+
+            <div
+              class="success-state"
+              id="reportSuccess"
+            >
+
+              <div class="success-icon">
+                <i class="fa-solid fa-check"></i>
+              </div>
+
+              <h2>
+                Report submitted securely
+              </h2>
+
+              <p>
+                CampusSOS AI has received your report and created
+                a concise summary for the response team.
+              </p>
+
+              <div class="report-id">
+                <small>REPORT ID</small>
+                <strong>CS-20481</strong>
+              </div>
+
+              <button
+                class="button dark"
+                onclick="resetReport()"
+              >
+                Submit another report
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <aside class="report-sidebar">
+
+            <div class="ai-risk-card">
+
+              <div class="ai-big-icon">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+
+              <span class="section-label">
+                AI RISK DETECTION
+              </span>
+
+              <h3>
+                Intelligent prioritization
+              </h3>
+
+              <p>
+                CampusSOS AI analyzes incident descriptions
+                to help response teams identify urgent reports.
+              </p>
+
+              <div class="example-analysis">
+
+                <small>EXAMPLE</small>
+
+                <p>
+                  "Person injured near library entrance."
+                </p>
+
+                <div>
+                  <span>AI urgency</span>
+
+                  <strong>
+                    HIGH
+                  </strong>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="security-card">
+
+              <i class="fa-solid fa-lock"></i>
+
+              <h3>
+                Private & secure
+              </h3>
+
+              <p>
+                Reports are shared only with authorized
+                campus response personnel according to
+                institutional policy.
+              </p>
+
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+      
+
+      
+
+
+<!-- =====================================================
+     SOS HISTORY PAGE
+====================================================== -->
+
+<section class="page" id="sosHistory">
+
+  <div class="container page-container">
+
+    <div class="page-heading">
+
+      <span class="section-label">
+        SOS HISTORY
+      </span>
+
+      <h1>
+        Your emergency activity.
+      </h1>
+
+      <p>
+        Review previous SOS requests and emergency activity.
+      </p>
+
+    </div>
+
+    <div class="incident-history-card">
+
+      <div class="card-header">
+
+        <div>
+          <span class="section-label">
+            RECENT SOS
+          </span>
+
+          <h3>
+            Emergency activity
+          </h3>
+        </div>
+
+        <span class="live-badge">
+          Live
+        </span>
+
+      </div>
+
+      <div id="sosHistoryList">
+
+        <div class="history-empty">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          <p>Loading SOS history...</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+    <!-- =====================================================
+         ALERTS PAGE
+    ====================================================== -->
+      <section class="page" id="alerts">
+
+  <div class="container page-container">
+
+    <div class="page-heading">
+
+      <span class="section-label">
+        CAMPUS ALERTS
+      </span>
+
+      <h1>
+        Stay informed.
+      </h1>
+
+      <p>
+        Important campus information prioritized by relevance.
+      </p>
+
+    </div>
+
+
+    <!-- DYNAMIC ALERTS -->
+
+    <div
+      class="alerts-page-grid"
+      id="alertsList"
+    >
+
+
+  <div class="history-empty">
+    <i class="fa-solid fa-spinner fa-spin"></i>
+    <p>Loading alerts...</p>
+  </div>
+
+</div>
+
+
+
+
+    <!-- ALERT PREFERENCES -->
+
+    <div class="preferences-card">
+
+      <div class="preferences-header">
+
+        <div class="preferences-icon">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            Smart alert preferences
+          </h3>
+
+          <p>
+            Choose which notifications matter most.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="preferences-grid">
+
+        <label>
+          <span>Security incidents</span>
+          <input type="checkbox" checked>
+        </label>
+
+        <label>
+          <span>Severe weather</span>
+          <input type="checkbox" checked>
+        </label>
+
+        <label>
+          <span>Fire alerts</span>
+          <input type="checkbox" checked>
+        </label>
+
+        <label>
+          <span>Campus closures</span>
+          <input type="checkbox" checked>
+        </label>
+
+        <label>
+          <span>Emergency announcements</span>
+          <input type="checkbox">
+        </label>
+
+        <label>
+          <span>Location-based alerts</span>
+          <input type="checkbox" checked>
+        </label>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     INCIDENT HISTORY PAGE
+====================================================== -->
+<section class="page"
+id="incidentHistory">
+
+  <div class="container page-container">
+
+    <div class="page-heading">
+
+      <span class="section-label">
+        INCIDENT HISTORY
+      </span>
+
+      <h1>
+        Your reported incidents.
+      </h1>
+
+      <p>
+        Review incidents submitted through CampusSOS AI.
+      </p>
+
+    </div>
+
+    <div
+      id="incidentHistoryList"
+      class="incident-history-list"
+    >
+
+      <div class="history-empty">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        <p>Loading incident history...</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- =====================================================
+         RESOURCES PAGE
+    ====================================================== -->
+
+    <section class="page" id="resources">
+
+      <div class="container page-container">
+
+        <div class="page-heading">
+
+          <span class="section-label">
+            SAFETY RESOURCES
+          </span>
+
+          <h1>
+            Support when you need it.
+          </h1>
+
+          <p>
+            Quick access to trusted campus services and support.
+          </p>
+
+        </div>
+
+
+        <div class="resources-grid">
+
+          <div class="resource-card">
+            <div class="resource-icon purple">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <h3>Medical Services</h3>
+
+            <p>
+              Campus clinic and urgent medical support.
+            </p>
+
+            <button onclick="openResourceDetail('medical')">Open resource →</button>
+          </div>
+
+
+          <div class="resource-card">
+            <div class="resource-icon blue">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>Campus Security</h3>
+
+            <p>
+              24/7 security response and assistance.
+            </p>
+
+            <button onclick="openResourceDetail('security')">Open resource →</button>
+          </div>
+
+
+          <div class="resource-card">
+            <div class="resource-icon green">
+              <i class="fa-solid fa-users"></i>
+            </div>
+
+            <h3>Student Support</h3>
+
+            <p>
+              Connect with trained student support teams.
+            </p>
+
+            <button onclick="openResourceDetail('support')">Open resource →</button>
+          </div>
+
+
+          <div class="resource-card">
+            <div class="resource-icon pink">
+              <i class="fa-solid fa-life-ring"></i>
+            </div>
+
+            <h3>Mental Health</h3>
+
+            <p>
+              Counselling and wellbeing resources.
+            </p>
+
+            <button onclick="openResourceDetail('mental')">Open resource →</button>
+          </div>
+
+
+          <div class="resource-card">
+            <div class="resource-icon orange">
+              <i class="fa-solid fa-hand"></i>
+            </div>
+
+            <h3>Anti-Bullying</h3>
+
+            <p>
+              Confidential reporting and support.
+            </p>
+
+            <button onclick="openResourceDetail('bullying')">Open resource →</button>
+          </div>
+
+
+          <div class="resource-card">
+            <div class="resource-icon red">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+
+            <h3>Emergency Contacts</h3>
+
+            <p>
+              Important campus and emergency numbers.
+            </p>
+
+            <button onclick="openResourceDetail('contacts')">Open resource →</button>
+          </div>
+
+        </div>
+
+
+        <div class="resource-emergency">
+
+          <div>
+
+            <span>
+              EMERGENCY
+            </span>
+
+            <h2>
+              Need immediate assistance?
+            </h2>
+
+            <p>
+              Start the CampusSOS emergency workflow.
+            </p>
+
+          </div>
+
+          <button
+            class="button button-danger"
+            onclick="openSOS()"
+          >
+            <i class="fa-solid fa-tower-broadcast"></i>
+            Start SOS
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROFILE PAGE
+    ====================================================== -->
+<!-- =====================================================
+     PROFILE PAGE
+====================================================== -->
+
+<section class="page" id="profile">
+
+  <div class="container page-container">
+
+    <div class="page-heading">
+
+      <span class="section-label">
+        PROFILE
+      </span>
+
+      <h1>
+        Your safety settings.
+      </h1>
+
+      <p>
+        Manage your emergency preferences and trusted contacts.
+      </p>
+
+    </div>
+
+
+    <div class="profile-grid">
+
+      <div class="profile-card">
+
+        <div class="profile-avatar">
+          AR
+        </div>
+
+        <h2>
+          Alex Rivera
+        </h2>
+
+        <p>
+          Computer Science • Year 3
+        </p>
+
+        <div class="profile-status">
+
+          <small>
+            SAFETY STATUS
+          </small>
+
+          <strong>
+            <i class="fa-solid fa-shield-check"></i>
+            Protected
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <!-- EMERGENCY CONTACTS -->
+
+      <div class="contacts-card">
+
+        <h3>
+          Emergency contacts
+        </h3>
+
+        <div class="contact-list">
+
+          <div class="contact">
+
+            <div class="contact-avatar blue">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div>
+              <strong>Campus Security</strong>
+              <small>24/7 response</small>
+            </div>
+
+            <button
+              onclick="showToast('Calling Campus Security')"
+            >
+              <i class="fa-solid fa-phone"></i>
+            </button>
+
+          </div>
+
+
+          <div class="contact">
+
+            <div class="contact-avatar purple">
+              <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+              <strong>Sarah Rivera</strong>
+              <small>Trusted contact</small>
+            </div>
+
+            <button
+              onclick="showToast('Calling Sarah Rivera')"
+            >
+              <i class="fa-solid fa-phone"></i>
+            </button>
+
+          </div>
+
+
+          <div class="contact">
+
+            <div class="contact-avatar green">
+              <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+              <strong>Jordan Smith</strong>
+              <small>Trusted contact</small>
+            </div>
+
+            <button
+              onclick="showToast('Calling Jordan Smith')"
+            >
+              <i class="fa-solid fa-phone"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="add-contact"
+          onclick="openAddContactModal()"
+        >
+          + Add trusted contact
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- =======================================================
+       FLOATING SOS
+  ======================================================== -->
+
+  <button
+    class="floating-sos"
+    onclick="openSOS()"
+    aria-label="Emergency SOS"
+  >
+    <i class="fa-solid fa-tower-broadcast"></i>
+    <span>SOS</span>
+  </button>
+
+
+  <!-- =======================================================
+       SOS MODAL
+  ======================================================== -->
+
+  <div
+    class="modal-overlay"
+    id="sosModal"
+  >
+
+    <div class="sos-modal">
+
+      <div
+        class="sos-modal-header"
+        id="sosHeader"
+      >
+
+        <button
+          class="close-modal"
+          onclick="closeSOS()"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="sos-modal-icon">
+          <i class="fa-solid fa-tower-broadcast"></i>
+        </div>
+
+        <span>
+          EMERGENCY SOS
+        </span>
+
+        <h2>
+          Are you in immediate danger?
+        </h2>
+
+        <p>
+          Campus security will receive your emergency request
+          and approximate location.
+        </p>
+
+      </div>
+
+
+      <div
+        class="sos-content"
+        id="sosInitial"
+      >
+
+        <div class="sos-check">
+
+          <div>
+            <i class="fa-solid fa-location-crosshairs"></i>
+          </div>
+
+          <div>
+            <strong>Location ready</strong>
+            <small>Central Student Hub</small>
+          </div>
+
+          <i class="fa-solid fa-check success"></i>
+
+        </div>
+
+
+        <div class="sos-check">
+
+          <div>
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+
+          <div>
+            <strong>Campus Security</strong>
+            <small>Response team will be notified</small>
+          </div>
+
+          <i class="fa-solid fa-check success"></i>
+
+        </div>
+
+
+        <div class="countdown" id="countdown">
+          3
+        </div>
+
+
+        <button
+          class="button button-danger full"
+          id="activateSOS"
+          onclick="activateSOS()"
+        >
+          <i class="fa-solid fa-tower-broadcast"></i>
+          Send Emergency Alert
+        </button>
+
+
+        <button
+          class="cancel-button"
+          onclick="closeSOS()"
+        >
+          Cancel
+        </button>
+
+
+        <small class="emergency-note">
+          For life-threatening emergencies, use your designated
+          emergency service.
+        </small>
+
+      </div>
+
+
+      <!-- ACTIVE STATE -->
+
+      <div
+        class="sos-active"
+        id="sosActive"
+      >
+
+        <div class="active-sos-icon">
+          <i class="fa-solid fa-tower-broadcast"></i>
+        </div>
+
+        <span class="danger-label">
+          EMERGENCY ACTIVE
+        </span>
+
+        <h2>
+          Help is being coordinated.
+        </h2>
+
+        <p>
+          Your emergency request has been sent to the campus
+          response workflow.
+        </p>
+
+
+        <div class="response-timeline">
+
+          <div class="timeline-item done">
+
+            <div>
+              <i class="fa-solid fa-check"></i>
+            </div>
+
+            <span>
+              <strong>Emergency alert sent</strong>
+              <small>Just now</small>
+            </span>
+
+          </div>
+
+
+          <div class="timeline-item done">
+
+            <div>
+              <i class="fa-solid fa-check"></i>
+            </div>
+
+            <span>
+              <strong>Location shared</strong>
+              <small>Central Student Hub</small>
+            </span>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div>
+              <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <span>
+              <strong>Response team notified</strong>
+              <small>Connecting...</small>
+            </span>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div>
+              <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <span>
+              <strong>Responder arrival</strong>
+              <small>Awaiting confirmation</small>
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="button dark full"
+          onclick="closeSOS()"
+        >
+          Close Emergency View
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       ALERT DETAIL MODAL
+  ======================================================== -->
+
+  <div class="modal-overlay" id="alertDetailModal">
+
+    <div class="alert-detail-modal">
+
+      <div class="alert-detail-header">
+        <button class="close-modal" onclick="closeAlertDetail()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="alert-detail-content">
+
+        <div class="alert-detail-icon" id="alertDetailIcon">
+          <i class="fa-solid fa-bullhorn"></i>
+        </div>
+
+        <h2 id="alertDetailTitle">Alert Title</h2>
+
+        <div class="alert-detail-meta">
+          <span id="alertDetailType">
+            <i class="fa-solid fa-tag"></i> Type
+          </span>
+          <span id="alertDetailTime">
+            <i class="fa-solid fa-clock"></i> Time
+          </span>
+        </div>
+
+        <div class="alert-detail-severity">
+          <span id="alertDetailSeverity">Severity: Medium</span>
+        </div>
+
+        <div class="alert-detail-description" id="alertDetailDescription">
+          <!-- Details populated by JavaScript -->
+        </div>
+
+        <div class="alert-detail-location" id="alertDetailLocation" style="display:none;">
+          <i class="fa-solid fa-location-dot"></i>
+          <span id="alertLocationText">Location</span>
+        </div>
+
+        <div class="alert-detail-actions">
+          <button class="button dark full" onclick="closeAlertDetail()">
+            Close
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       RESOURCE DETAIL MODAL
+  ======================================================== -->
+
+  <div class="modal-overlay" id="resourceModal">
+
+    <div class="resource-detail-modal">
+
+      <div class="resource-modal-header">
+        <button class="close-modal" onclick="closeResourceModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="resource-modal-content">
+
+        <div class="resource-modal-icon" id="resourceIcon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <h2 id="resourceTitle">Resource Title</h2>
+
+        <div class="resource-modal-details" id="resourceDetails">
+          <!-- Details populated by JavaScript -->
+        </div>
+
+        <div class="resource-modal-actions">
+          <button class="button dark full" id="resourcePrimaryBtn" onclick="performResourceAction()">
+            Primary Action
+          </button>
+
+          <button class="button button-glass full" onclick="closeResourceModal()">
+            Close
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       ADD TRUSTED CONTACT MODAL
+  ======================================================== -->
+
+  <div class="modal-overlay" id="addContactModal">
+
+    <div class="add-contact-modal">
+
+      <div class="modal-header">
+        <button class="close-modal" onclick="closeAddContactModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-content">
+
+        <h2>Add Trusted Contact</h2>
+
+        <form class="contact-form" onsubmit="handleAddContact(event)">
+
+          <div class="form-group">
+            <label for="contactName">Contact Name *</label>
+            <input
+              type="text"
+              id="contactName"
+              placeholder="Enter contact name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contactPhone">Phone Number *</label>
+            <input
+              type="tel"
+              id="contactPhone"
+              placeholder="Enter phone number"
+              pattern="[0-9\-\+\(\)\s]+"
+              title="Please enter a valid phone number"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contactType">Relationship *</label>
+            <select id="contactType" required>
+              <option value="">Select a relationship</option>
+              <option value="Family">Family</option>
+              <option value="Friend">Friend</option>
+              <option value="Roommate">Roommate</option>
+              <option value="Mentor">Mentor</option>
+              <option value="Advisor">Advisor</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="button dark full">
+              Save Contact
+            </button>
+
+            <button type="button" class="button button-glass full" onclick="closeAddContactModal()">
+              Cancel
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       TOAST
+  ======================================================== -->
+
+  <div
+    class="toast"
+    id="toast"
+  >
+    <i class="fa-solid fa-check"></i>
+    <span id="toastMessage"></span>
+  </div>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+        <strong>
+          CampusSOS <span>AI</span>
+        </strong>
+
+        <p>
+          Student safety, intelligently connected.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <span>Privacy</span>
+        <span>Accessibility</span>
+        <span>Emergency Information</span>
+      </div>
+
+    </div>
+
+  </footer>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
